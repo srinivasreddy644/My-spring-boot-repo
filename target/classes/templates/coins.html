@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Coins</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+    <div class="container">
+        <h2>Coin Data</h2>
+        <form th:action="@{/coins}" method="get">
+            <div class="field">
+                <label for="symbols">Enter Symbols (comma-separated):</label>
+                <input type="text" id="symbols" name="symbols" required/>
+            </div>
+            <button type="submit">Get Data</button>
+        </form>
+        <div th:if="${coinData}">
+            <h3>Coin Data:</h3>
+            <pre th:text="${coinData}"></pre>
+        </div>
+    </div>
+</body>
+</html>
